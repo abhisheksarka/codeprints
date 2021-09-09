@@ -12,7 +12,15 @@ module Dsl
     end
 
     def component(name, opts = {}, &block)
-      components[name] = Component.new(name, opts, &block)
+      const = module_ref.const_set(
+        name,
+        Class.new(Dsl::Component) do
+          def initialize(name, opts, &block)
+            super(name, opts, &block)
+          end
+        end
+      )
+      components[name] = const.new(name, opts, &block)
     end
 
     class_methods do
