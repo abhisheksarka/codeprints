@@ -1,42 +1,45 @@
-# str = %{
-#   component :User do
-#     prop :id, Integer
-#     prop :name, String
-#   end
+# cdl = %{
+#   component User {
+#     prop id, Integer
+#     prop name, String
+#   }
 
-#   component :Amount do
-#     prop :currency, String, value: 'usd'
-#     prop :unit_value, Integer, value: 2000
-#   end
+#   component Amount {
+#     prop currency, String, value: 'usd'
+#     prop unit_value, Integer, value: 2000
+#   }
 
-#   component :Charge do
-#     prop :amount, Amount
-#   end
+#   component Charge {
+#     prop amount, Amount
+#   }
 # }
 # namespace = "A"
-# box = Dsl::Box.new(str, namespace)
+# box = Dsl::Box.new(cdl, namespace)
 # box.run!
 
 module Dsl
   class Box
-    attr_accessor :str,
+    attr_accessor :cdl,
+                  :dsl,
                   :module_ref
 
-    def initialize(str, namespace)
-      @str = str
+    def initialize(cdl, namespace)
+      @cdl = cdl
+      @dsl = Cdl::ToDsl.run!(cdl)
+
       @module_ref = Dsl.const_set(namespace, module_code)
     end
 
     def run!
-      module_ref.run!(str)
+      module_ref.run!(dsl)
     end
 
     def module_code
       Module.new do
-        def self.run!(str)
+        def self.run!(dsl)
           main = self.const_get(:Main).new
           main.module_ref = self
-          main.run!(str)
+          main.run!(dsl)
         end
 
         self.const_set(
@@ -46,8 +49,8 @@ module Dsl
 
             attr_accessor :module_ref
 
-            def run!(str)
-              instance_eval(str)
+            def run!(dsl)
+              instance_eval(dsl)
             end
 
             def self.const_missing(name)

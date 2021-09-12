@@ -19,7 +19,6 @@ module Cdl
 
       def run!
         scan!
-        validate!
         replace!
         cdl
       end
