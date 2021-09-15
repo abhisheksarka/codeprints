@@ -3,3 +3,4 @@
 en:
   errors:
     multiple_inheritance_not_allowed: 'Multiple inheritance not allowed.'
+    only_behaviours_allowed: 'Only behaviours allowed.'

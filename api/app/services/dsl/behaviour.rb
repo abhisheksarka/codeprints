@@ -1,12 +1,11 @@
 require 'active_support/concern'
 
 module Dsl
-  class Component
+  class Behaviour
     include PropProvider
     include HasOneProvider
     include HasManyProvider
     include BelongsToProvider
-    include IsAProvider
     include ActsLikeProvider
 
     attr_accessor :name,
@@ -15,7 +14,7 @@ module Dsl
 
     def initialize(name, opts = {}, &block)
       @name = name
-      @opts = opts.with_indifferent_access
+      @opts = opts
       @block = proc &block
     end
 

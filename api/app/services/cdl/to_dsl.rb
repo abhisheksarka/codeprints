@@ -3,6 +3,7 @@ module Cdl
     def self.run!(str)
       [
         Component,
+        Behaviour,
         DeclarationProp,
         DeclarationHasOne,
         DeclarationHasMany,

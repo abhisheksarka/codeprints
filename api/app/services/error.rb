@@ -10,4 +10,5 @@ module Error
   end
 
   class MultipleInheritanceNotAllowed < Base; end
+  class OnlyBehavioursAllowed < Base; end
 end

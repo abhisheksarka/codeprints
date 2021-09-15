@@ -1,21 +1,18 @@
 # cdl = %{
-#   component ActiveRecord {
-#   }
-#
+#   behaviour Payable {}
+
 #   component Charge {
-#     is_a ActiveRecord
+#     acts_like Payable
 #     has_one amount, Amount
 #   }
-#
+
 #   component User {
-#     is_a ActiveRecord
 #     prop id, Integer
 #     prop name, String
 #     has_many charges, Charge
 #   }
-#
+
 #   component Amount {
-#     is_a ActiveRecord
 #     prop currency, String, value: 'usd'
 #     prop unit_value, Integer, value: 2000
 #     belongs_to charge, Charge
@@ -62,6 +59,7 @@ module Dsl
           :Main,
           Class.new do
             include ComponentProvider
+            include BehaviourProvider
 
             attr_accessor :module_ref
 
