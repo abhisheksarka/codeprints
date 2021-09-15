@@ -6,6 +6,7 @@ module Dsl
     include HasOneProvider
     include HasManyProvider
     include BelongsToProvider
+    include IsAProvider
 
     attr_accessor :name,
                   :opts,

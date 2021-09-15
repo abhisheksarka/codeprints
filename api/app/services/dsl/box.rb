@@ -1,14 +1,21 @@
 # cdl = %{
+#   component ActiveRecord {
+#   }
+#
 #   component Charge {
+#     is_a ActiveRecord
 #     has_one amount, Amount
 #   }
+#
 #   component User {
+#     is_a ActiveRecord
 #     prop id, Integer
 #     prop name, String
 #     has_many charges, Charge
 #   }
-
+#
 #   component Amount {
+#     is_a ActiveRecord
 #     prop currency, String, value: 'usd'
 #     prop unit_value, Integer, value: 2000
 #     belongs_to charge, Charge
