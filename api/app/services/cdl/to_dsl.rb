@@ -3,7 +3,10 @@ module Cdl
     def self.run!(str)
       [
         Component,
-        Prop
+        DeclarationProp,
+        DeclarationHasOne,
+        DeclarationHasMany,
+        DeclarationBelongsTo
       ].map do |r|
         str = r.new(str).run!
       end.last

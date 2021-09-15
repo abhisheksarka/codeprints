@@ -1,16 +1,17 @@
 # cdl = %{
+#   component Charge {
+#     has_one amount, Amount
+#   }
 #   component User {
 #     prop id, Integer
 #     prop name, String
+#     has_many charges, Charge
 #   }
 
 #   component Amount {
 #     prop currency, String, value: 'usd'
 #     prop unit_value, Integer, value: 2000
-#   }
-
-#   component Charge {
-#     prop amount, Amount
+#     belongs_to charge, Charge
 #   }
 # }
 # namespace = "A"
@@ -34,12 +35,20 @@ module Dsl
       module_ref.run!(dsl)
     end
 
+    def main
+      module_ref.main
+    end
+
     def module_code
       Module.new do
         def self.run!(dsl)
-          main = self.const_get(:Main).new
-          main.module_ref = self
-          main.run!(dsl)
+          @main = const_get(:Main).new
+          @main.module_ref = self
+          @main.run!(dsl)
+        end
+
+        def self.main
+          @main
         end
 
         self.const_set(
@@ -50,7 +59,19 @@ module Dsl
             attr_accessor :module_ref
 
             def run!(dsl)
+              # First let the components
+              # be declared, and make them available
+              # for usage by component blocks
               instance_eval(dsl)
+
+              # At this point all decalared components
+              # will be available as constants and hence
+              # will be available for use inside the component
+              # blocks. So order of component declaration and
+              # usage does not matter
+              components.each do |k, v|
+                v.evaluate_block
+              end
             end
 
             def self.const_missing(name)
