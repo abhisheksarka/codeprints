@@ -1,13 +1,6 @@
 module Parser
   module Dsl
-    class Behaviour
-      include PropProvider
-      include HasOneProvider
-      include HasManyProvider
-      include BelongsToProvider
-      include ActsLikeProvider
-      include MethodProvider
-
+    class Method
       attr_accessor :name,
                     :opts,
                     :block

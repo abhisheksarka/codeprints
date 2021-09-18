@@ -1,6 +1,7 @@
 require_relative './to_dsl/base'
 require_relative './to_dsl/behaviour'
 require_relative './to_dsl/component'
+require_relative './to_dsl/method'
 require_relative './to_dsl/declaration_prop'
 require_relative './to_dsl/declaration_acts_like'
 require_relative './to_dsl/declaration_belongs_to'
@@ -14,6 +15,7 @@ module Parser
         [
           Component,
           Behaviour,
+          Method,
           DeclarationProp,
           DeclarationHasOne,
           DeclarationHasMany,

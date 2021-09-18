@@ -5,6 +5,7 @@
   :prop,
   :has_one,
   :is_a,
+  :method,
   :behaviour,
   :component
 ].each do |dsl|

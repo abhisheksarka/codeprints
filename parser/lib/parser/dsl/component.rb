@@ -7,6 +7,7 @@ module Parser
       include BelongsToProvider
       include IsAProvider
       include ActsLikeProvider
+      include MethodProvider
 
       attr_accessor :name,
                     :opts,

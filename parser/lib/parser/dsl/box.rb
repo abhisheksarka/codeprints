@@ -1,5 +1,7 @@
 # cdl = %{
-#   behaviour Payable {}
+#   behaviour Payable {
+#     method pay { }
+#   }
 
 #   component Charge {
 #     acts_like Payable
@@ -18,8 +20,7 @@
 #     belongs_to charge, Charge
 #   }
 # }
-# namespace = "A"
-# box = Parser::Dsl::Box.new(cdl, namespace)
+# box = Parser::Dsl::Box.new(cdl, "A")
 # box.run!
 
 module Parser
@@ -75,9 +76,7 @@ module Parser
                 # will be available for use inside the component
                 # blocks. So order of component declaration and
                 # usage does not matter
-                components.each do |k, v|
-                  v.evaluate_block
-                end
+                (components.values + behaviours.values).each(&:evaluate_block)
               end
 
               def self.const_missing(name)
