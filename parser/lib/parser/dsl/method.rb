@@ -2,6 +2,7 @@ module Parser
   module Dsl
     class Method
       include ArgumentsProvider
+      include ReturnsProvider
 
       attr_accessor :name,
                     :opts,

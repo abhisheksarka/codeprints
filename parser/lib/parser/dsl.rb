@@ -6,6 +6,7 @@
   :has_one,
   :is_a,
   :arguments,
+  :returns,
   :method,
   :behaviour,
   :component

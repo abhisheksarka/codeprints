@@ -2,6 +2,7 @@
 #   behaviour Payable {
 #     method pay {
 #       args amount: Integer
+#       returns Array
 #     }
 #   }
 
