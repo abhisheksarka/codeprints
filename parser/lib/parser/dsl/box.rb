@@ -1,6 +1,8 @@
 # cdl = %{
 #   behaviour Payable {
-#     method pay { }
+#     method pay {
+#       args amount: Integer
+#     }
 #   }
 
 #   component Charge {
@@ -76,7 +78,9 @@ module Parser
                 # will be available for use inside the component
                 # blocks. So order of component declaration and
                 # usage does not matter
-                (components.values + behaviours.values).each(&:evaluate_block)
+                a = (components.values + behaviours.values)
+                a.each(&:evaluate_block)
+                a.each(&:evaluate_method_blocks)
               end
 
               def self.const_missing(name)

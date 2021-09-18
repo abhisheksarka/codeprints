@@ -14,6 +14,10 @@ module Parser
         _methods[method_name] = Method.new(method_name, opts, &block)
       end
 
+      def evaluate_method_blocks
+        _methods.values.each(&:evaluate_block)
+      end
+
       class_methods do
       end
     end

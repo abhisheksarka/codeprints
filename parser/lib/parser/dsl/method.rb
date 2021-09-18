@@ -1,6 +1,8 @@
 module Parser
   module Dsl
     class Method
+      include ArgumentsProvider
+
       attr_accessor :name,
                     :opts,
                     :block
