@@ -3,6 +3,10 @@
 #     method pay {
 #       args amount: Integer
 #       returns Array
+#
+#       if (false) {}
+#       if (true) {} else {}
+#       if('x is 1') {}
 #     }
 #   }
 

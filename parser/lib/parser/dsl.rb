@@ -5,6 +5,8 @@
   :prop,
   :has_one,
   :is_a,
+  :if,
+  :else,
   :arguments,
   :returns,
   :method,

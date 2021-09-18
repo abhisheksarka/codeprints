@@ -12,5 +12,6 @@ module Parser
 
     class MultipleInheritanceNotAllowed < Base; end
     class OnlyBehavioursAllowed < Base; end
+    class ElseWithoutAnIf < Base; end
   end
 end

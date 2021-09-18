@@ -3,6 +3,8 @@ module Parser
     class Method
       include ArgumentsProvider
       include ReturnsProvider
+      include IfProvider
+      include ElseProvider
 
       attr_accessor :name,
                     :opts,
@@ -16,6 +18,8 @@ module Parser
 
       def evaluate_block
         instance_eval &block
+        evaluate_if_blocks
+        evaluate_else_blocks
       end
     end
   end
