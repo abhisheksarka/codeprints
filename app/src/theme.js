@@ -1,5 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 
+const GLOBAL_SPACING = 2;
+
 const theme = createTheme({
   typography: {
     fontFamily: [
@@ -7,12 +9,11 @@ const theme = createTheme({
     ].join(','),
   },
   palette: {
-    mode: 'dark',
     primary: {
-      main: '#0C162D'
+      main: '#19253B'
     },
     secondary: {
-      main: '#19253B'
+      main: '#0C162D'
     },
     error: {
       main: '#F7567C'
@@ -29,4 +30,6 @@ const theme = createTheme({
   },
 });
 
-export default theme;
+export {
+  GLOBAL_SPACING, theme
+};

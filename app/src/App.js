@@ -4,18 +4,16 @@ import ReactDOM from 'react-dom';
 import Button from '@mui/material/Button';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import theme from './theme';
+import Nav from './nav/Nav';
+import { theme } from './theme';
+import Editor from './workspace/editor/Editor';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <header className="App-header">
-        <Typography variant="h2" gutterBottom>
-          Hello world
-        </Typography>
-          <Button variant="contained">Hello World</Button>
-        </header>
+        <Nav></Nav>
+        <Editor/>
       </div>
     </ThemeProvider>
   );
