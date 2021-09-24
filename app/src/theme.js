@@ -1,12 +1,15 @@
 import { createTheme } from '@mui/material/styles';
 
-const GLOBAL_SPACING = 2;
+const SPACING_FACTOR_IN_PIXELS = 8;
 
 const theme = createTheme({
   typography: {
     fontFamily: [
       'Open Sans'
     ].join(','),
+    button: {
+      textTransform: 'none'
+    }
   },
   palette: {
     primary: {
@@ -31,5 +34,5 @@ const theme = createTheme({
 });
 
 export {
-  GLOBAL_SPACING, theme
+  SPACING_FACTOR_IN_PIXELS, theme
 };
