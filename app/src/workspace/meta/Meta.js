@@ -6,6 +6,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { MUTED_OPACITY } from "../../theme";
+import StarIcon from '@mui/icons-material/Star';
 
 export default function Meta(props) {
   return (
@@ -27,9 +28,17 @@ export default function Meta(props) {
                 <strong>The Observer Pattern</strong><br/>
               </Typography>
               <Typography variant="caption" sx={{opacity: MUTED_OPACITY}}>
-                designed by Abhishek Sarkar
+                Designed by <strong>Abhishek Sarkar</strong>
               </Typography>
             </Box>
+            <StarIcon></StarIcon>
+            <StarIcon></StarIcon>
+            <StarIcon></StarIcon>
+            <StarIcon></StarIcon>
+            <StarIcon sx={{ opacity: MUTED_OPACITY }}></StarIcon>
+            <Typography variant="caption" sx={{ ml: 1 }}>
+              <strong>210 ratings</strong>
+            </Typography>
           </Toolbar>
         </AppBar>
       </Box>
