@@ -10,10 +10,10 @@ export default function Workspace() {
       flexGrow: 1
     }}>
       <Grid container spacing={0} sx={{height: '100vh'}}>
-        <Grid item xs={4}>
+        <Grid item xs={5}>
           <Editor></Editor>
         </Grid>
-        <Grid item xs={8}>
+        <Grid item xs={7}>
           <Viewer></Viewer>
         </Grid>
       </Grid>

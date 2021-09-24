@@ -23,6 +23,7 @@ export default function Editor(props) {
           enableLiveAutocompletion: true,
           enableSnippets: false,
           showLineNumbers: true,
+          fontSize: 14,
           tabSize: 2
         }}
       />
