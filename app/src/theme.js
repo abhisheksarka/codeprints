@@ -1,6 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 
 const SPACING_FACTOR_IN_PIXELS = 8;
+const MUTED_OPACITY = 0.5;
 
 const theme = createTheme({
   typography: {
@@ -34,5 +35,5 @@ const theme = createTheme({
 });
 
 export {
-  SPACING_FACTOR_IN_PIXELS, theme
+  SPACING_FACTOR_IN_PIXELS, MUTED_OPACITY, theme
 };

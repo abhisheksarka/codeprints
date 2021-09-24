@@ -9,7 +9,6 @@ export default function Workspace() {
     <Box sx={{
       flexGrow: 1
     }}>
-      <Nav></Nav>
       <Grid container spacing={0} sx={{height: '100vh'}}>
         <Grid item xs={4}>
           <Editor></Editor>
