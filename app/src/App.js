@@ -5,13 +5,13 @@ import Button from '@mui/material/Button';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Nav from './nav/Nav';
-import { theme } from './theme';
+import { midnightTheme, defaultTheme } from './theme';
 import Editor from './workspace/editor/Editor';
 import Workspace from './workspace/Workspace';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={defaultTheme}>
       <div className="App">
         <Nav></Nav>
         <Workspace></Workspace>

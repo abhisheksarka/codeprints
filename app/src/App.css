@@ -7,11 +7,3 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.ace-solarized-dark .ace_content {
-  background-color: #0C162D;
-}
-
-.ace-solarized-dark .ace_gutter {
-  background-color: #040D21;
-}

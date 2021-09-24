@@ -3,11 +3,21 @@ import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-ruby";
 import "ace-builds/src-noconflict/theme-solarized_dark";
 import "ace-builds/src-noconflict/ext-language_tools";
+import { alpha } from '@mui/material/styles';
 import Nav from '../nav/Nav';
+import { Box } from "@mui/material";
 
 export default function Editor(props) {
   return (
-    <React.Fragment>
+    <Box sx={{
+      '& .ace_content': {
+        backgroundColor: (theme) => alpha(theme.palette.primary.main, 1)
+      },
+      '& .ace_gutter': {
+        backgroundColor: (theme) => alpha(theme.palette.secondary.main, 1)
+      },
+      height: '100%'
+    }}>
       <Nav></Nav>
       <AceEditor
         mode="ruby"
@@ -27,6 +37,6 @@ export default function Editor(props) {
           tabSize: 2
         }}
       />
-    </React.Fragment>
+    </Box>
   );
 }
