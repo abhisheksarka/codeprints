@@ -7,13 +7,14 @@ import Typography from '@mui/material/Typography';
 import Nav from './nav/Nav';
 import { theme } from './theme';
 import Editor from './workspace/editor/Editor';
+import Workspace from './workspace/Workspace';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
         <Nav></Nav>
-        <Editor/>
+        <Workspace></Workspace>
       </div>
     </ThemeProvider>
   );
