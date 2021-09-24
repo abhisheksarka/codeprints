@@ -10,7 +10,7 @@ export default function Workspace() {
       flexGrow: 1
     }}>
       <Nav></Nav>
-      <Grid container spacing={1} sx={{height: '100vh'}}>
+      <Grid container spacing={0} sx={{height: '100vh'}}>
         <Grid item xs={4}>
           <Editor></Editor>
         </Grid>
