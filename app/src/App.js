@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Nav from './nav/Nav';
-import { midnightTheme, defaultTheme } from './theme';
+import { midnightTheme, defaultTheme, lightTheme } from './theme';
 import Editor from './workspace/editor/Editor';
 import Workspace from './workspace/Workspace';
 

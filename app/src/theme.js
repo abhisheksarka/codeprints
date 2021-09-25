@@ -45,6 +45,8 @@ const MIDNIGHT_PALETTE = {
   }
 };
 
+const LIGHT_PALETTE = {};
+
 const DEFAULT_TYPOGRAPHY = {
   fontFamily: [
     'Open Sans'
@@ -64,6 +66,11 @@ const midnightTheme = createTheme({
   palette: MIDNIGHT_PALETTE
 });
 
+const lightTheme = createTheme({
+  typography: DEFAULT_TYPOGRAPHY,
+  palette: LIGHT_PALETTE
+});
+
 export {
   SPACING_FACTOR_IN_PIXELS,
   MUTED_OPACITY,
@@ -71,5 +78,6 @@ export {
   MIDNIGHT_PALETTE,
   DEFAULT_TYPOGRAPHY,
   midnightTheme,
-  defaultTheme
+  defaultTheme,
+  lightTheme
 };
