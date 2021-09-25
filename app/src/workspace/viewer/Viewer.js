@@ -12,7 +12,7 @@ export default function Viewer(props) {
       height: '100%',
       left: props.left,
       width: props.width || '100%',
-      bgcolor: 'primary.main',
+      bgcolor: 'secondary.main',
       backgroundSize: '16px 16px',
       backgroundImage: 'linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px)'
     }}>
