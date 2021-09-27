@@ -5,6 +5,7 @@ import "ace-builds/src-noconflict/theme-solarized_dark";
 import "ace-builds/src-noconflict/ext-language_tools";
 import { Box } from "@mui/material";
 import Meta from "../meta/Meta";
+import Board from "./Board";
 
 export default function Viewer(props) {
   return (
@@ -17,6 +18,7 @@ export default function Viewer(props) {
       backgroundImage: 'linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px)'
     }}>
       <Meta></Meta>
+      <Board></Board>
     </Box>
   );
 }
