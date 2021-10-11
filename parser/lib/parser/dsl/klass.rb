@@ -1,12 +1,7 @@
 module Parser
   module Dsl
-    class Behaviour
-      include PropProvider
-      include HasOneProvider
-      include HasManyProvider
-      include BelongsToProvider
-      include ActsLikeProvider
-      include MethodProvider
+    class Klass
+      include PropsProvider
 
       attr_accessor :name,
                     :opts,
@@ -14,7 +9,7 @@ module Parser
 
       def initialize(name, opts = {}, &block)
         @name = name
-        @opts = opts
+        @opts = opts.with_indifferent_access
         @block = proc &block
       end
 

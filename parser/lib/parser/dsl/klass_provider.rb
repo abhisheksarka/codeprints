@@ -1,25 +1,25 @@
 module Parser
   module Dsl
-    module BehaviourProvider
+    module KlassProvider
       extend ActiveSupport::Concern
 
       included do
       end
 
-      def behaviours
-        @behaviours ||= {}.with_indifferent_access
+      def klasses
+        @klasses ||= {}.with_indifferent_access
       end
 
-      def behaviour(name, opts = {}, &block)
+      def klass(name, opts = {}, &block)
         const = module_ref.const_set(
           name,
-          Class.new(Dsl::Behaviour) do
+          Class.new(Dsl::Klass) do
             def initialize(name, opts, &block)
               super(name, opts, &block)
             end
           end
         )
-        behaviours[name] = const.new(name, opts, &block)
+        klasses[name] = const.new(name, opts, &block)
       end
 
       class_methods do

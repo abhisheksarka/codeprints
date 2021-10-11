@@ -1,14 +1,15 @@
 module Parser
   module Cdl
     module ToDsl
-      class Behaviour < Base
+      class Props < Base
         def scan!
-          @scans = extract_scans(/behaviour\s\w+/)
+          @scans = extract_scans(/props\s+{.*}/m)
         end
 
         def replace!
           @scans.each do |scan|
-            cdl.sub!(scan[0], "behaviour(:#{scan[0].split(' ')[-1]})")
+            s = scan[0]
+            cdl.sub!(s, s.sub('{', '({').sub('}', '})'))
           end
         end
       end

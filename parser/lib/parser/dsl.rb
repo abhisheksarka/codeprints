@@ -1,20 +1,14 @@
 [
-  :acts_like,
-  :belongs_to,
-  :has_many,
-  :prop,
-  :has_one,
-  :is_a,
-  :if,
-  :else,
-  :arguments,
-  :returns,
-  :method,
-  :behaviour,
-  :component
+  :props,
+  :klass
+].each do |dsl|
+  require_relative "./dsl/#{dsl}_provider"
+end
+
+[
+  :klass
 ].each do |dsl|
   require_relative "./dsl/#{dsl}"
-  require_relative "./dsl/#{dsl}_provider"
 end
 
 require_relative './dsl/box'

@@ -1,14 +1,14 @@
 module Parser
   module Cdl
     module ToDsl
-      class If < Base
+      class Class < Base
         def scan!
-          @scans = extract_scans(/if\s*\(/)
+          @scans = extract_scans(/class\s+\w+\s*/)
         end
 
         def replace!
           @scans.each do |scan|
-            cdl.sub!(scan[0], scan[0].dup.sub!('if', '_if_'))
+            cdl.sub!(scan[0], "klass(:#{scan[0].split(' ')[1]})")
           end
         end
       end

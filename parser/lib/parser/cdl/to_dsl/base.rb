@@ -7,7 +7,7 @@ module Parser
 
         def initialize(cdl)
           @cdl = cdl.dup
-          clean!
+          # clean!
         end
 
         def extract_scans(regex)
