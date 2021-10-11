@@ -25,6 +25,7 @@ export default function Canvas(props) {
     setDimensions();
     addEvents();
     Card({canvas: canvas, theme: theme, data: {title: "Charge", desc: "Represents what a user pays for"}});
+    Card({canvas: canvas, theme: theme, data: {title: "Payment", desc: "The actual payment made by the user"}});
   }, []);
 
   return (
