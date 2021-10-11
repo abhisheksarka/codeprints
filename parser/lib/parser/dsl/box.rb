@@ -24,7 +24,7 @@
 # cdl = %{
 #   class Charge {
 #     props {
-#       id: String,
+#       id: String
 #       name: String
 #     }
 #   }
