@@ -1,10 +1,12 @@
 import React, { useRef, useEffect } from 'react';
+import { useTheme } from '@mui/material/styles';
 import { fabric } from 'fabric';
 import Card from './Card';
 
 export default function Canvas(props) {
   const canvasRef = useRef(null);
-  let canvas = null;
+  let canvas,
+      theme = useTheme();
 
   function setDimensions() {
     const container = props.containerRef.current;
@@ -20,8 +22,9 @@ export default function Canvas(props) {
 
   useEffect(() => {
     canvas = new fabric.Canvas(canvasRef.current);
+    setDimensions();
     addEvents();
-    Card({canvas: canvas});
+    Card({canvas: canvas, theme: theme});
   }, []);
 
   return (
