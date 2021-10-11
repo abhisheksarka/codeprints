@@ -1,9 +1,53 @@
 import { fabric } from 'fabric';
+import { MUTED_OPACITY } from '../../../theme';
 
 export default function Card(props) {
-  const { canvas, theme } = props;
+  const { canvas, theme, data } = props;
+  const group = createGroup();
 
-  var rect = new fabric.Rect({
+  function createGroup() {
+    return new fabric.Group([
+      createRect(data, theme),
+      createTitle(data, theme),
+      createDesc(data, theme)
+    ], {
+      left: 0,
+      top: 0
+    });
+  }
+
+  group.hasBorders = false;
+  group.hasControls = false;
+
+  canvas.add(group);
+
+  return group;
+};
+
+
+function createTitle(data, theme) {
+  return new fabric.Text(data.title, {
+    fontSize: theme.typography.fontSize,
+    fontFamily: theme.typography.fontFamily,
+    left: parseInt(theme.spacing(3)),
+    top: parseInt(theme.spacing(2)),
+    fill: theme.palette.primary.contrastText
+  });
+}
+
+function createDesc(data, theme) {
+  return new fabric.Text(data.desc, {
+    fontSize: convertRemToPx(parseFloat(theme.typography.caption.fontSize)),
+    fontFamily: theme.typography.fontFamily,
+    left: parseInt(theme.spacing(3)),
+    top: parseInt(theme.spacing(5)),
+    fill: theme.palette.primary.contrastText,
+    opacity: MUTED_OPACITY
+  });
+}
+
+function createRect(data, theme) {
+  return new fabric.Rect({
     fill: theme.palette.primary.main,
     width: parseInt(theme.spacing(33)),
     height: parseInt(theme.spacing(13)),
@@ -12,11 +56,8 @@ export default function Card(props) {
     rx: parseInt(theme.spacing()),
     ry: parseInt(theme.spacing())
   });
+}
 
-  rect.hasBorders = false;
-  rect.hasControls = false;
-
-  canvas.add(rect);
-
-  return rect;
-};
+function convertRemToPx(rem) {
+  return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+}

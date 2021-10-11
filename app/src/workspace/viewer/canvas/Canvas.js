@@ -24,7 +24,7 @@ export default function Canvas(props) {
     canvas = new fabric.Canvas(canvasRef.current);
     setDimensions();
     addEvents();
-    Card({canvas: canvas, theme: theme});
+    Card({canvas: canvas, theme: theme, data: {title: "Charge", desc: "This is a desc"}});
   }, []);
 
   return (
