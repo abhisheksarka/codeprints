@@ -1,8 +1,5 @@
 # cdl = %{
-#   class Charge {
-#     acts_like Payable
-#     is_a Object
-    
+#   class Charge {    
 #     props {
 #       id: String
 #       name: String
@@ -20,26 +17,6 @@
 #       active_payment: Payment
 #     }
 #   }  
-# }
-# cdl = %{
-#   class Charge {
-#     props {
-#       id: String
-#       name: String
-#     }
-
-#     has_many {
-#       ids: String
-#     }
-
-#     has_one {
-#       id: String
-#     }
-
-#     belongs_to {
-#       user: String
-#     }
-#   }
 # }
 # box = Parser::Dsl::Box.new(cdl, "A")
 # box.run!
