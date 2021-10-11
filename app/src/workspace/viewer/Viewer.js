@@ -5,12 +5,12 @@ import "ace-builds/src-noconflict/theme-solarized_dark";
 import "ace-builds/src-noconflict/ext-language_tools";
 import { Box } from "@mui/material";
 import Meta from "../meta/Meta";
-import Board from "./Board";
+import Canvas from "./canvas/Canvas";
 
 export default function Viewer(props) {
   return (
     <Box sx={{
-      height: '100%',
+      height: props.height || '100%',
       left: props.left,
       width: props.width || '100%',
       bgcolor: 'secondary.main',
@@ -18,7 +18,7 @@ export default function Viewer(props) {
       backgroundImage: 'linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px)'
     }}>
       <Meta></Meta>
-      <Board></Board>
+      <Canvas style={{width:'100%', height: '100%'}}></Canvas>
     </Box>
   );
 }

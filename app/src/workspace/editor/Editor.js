@@ -25,7 +25,7 @@ export default function Editor(props) {
         name="UNIQUE_ID_OF_DIV"
         showGutter={true}
         highlightActiveLine={true}
-        height='100%'
+        height={props.height || '100%'}
         width={props.width || '100%'}
         editorProps={{ $blockScrolling: true }}
         setOptions={{
