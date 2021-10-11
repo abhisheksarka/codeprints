@@ -2,6 +2,9 @@ module Parser
   module Dsl
     class Klass
       include PropsProvider
+      include HasOneProvider
+      include HasManyProvider
+      include BelongsToProvider
 
       attr_accessor :name,
                     :opts,

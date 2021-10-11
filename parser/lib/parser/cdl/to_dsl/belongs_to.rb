@@ -1,9 +1,9 @@
 module Parser
   module Cdl
     module ToDsl
-      class Props < Methods
+      class BelongsTo < Methods
         def method_type
-          :props
+          :belongs_to
         end
       end
     end

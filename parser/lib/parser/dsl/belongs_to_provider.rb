@@ -1,17 +1,17 @@
 module Parser
   module Dsl
-    module PropsProvider
+    module BelongsToProvider
       extend ActiveSupport::Concern
 
       included do
       end
 
-      def props(args)
-        @props = args
+      def belongs_to(args)
+        @belongs_to = args
       end
 
-      def provided_props
-        @props
+      def provided_belongs_to
+        @belongs_to
       end
 
       class_methods do

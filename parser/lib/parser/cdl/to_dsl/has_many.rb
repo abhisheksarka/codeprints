@@ -1,9 +1,9 @@
 module Parser
   module Cdl
     module ToDsl
-      class Props < Methods
+      class HasMany < Methods
         def method_type
-          :props
+          :has_many
         end
       end
     end

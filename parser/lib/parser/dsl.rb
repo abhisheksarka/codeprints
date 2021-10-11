@@ -1,5 +1,8 @@
 [
   :props,
+  :belongs_to,
+  :has_many,
+  :has_one,
   :klass
 ].each do |dsl|
   require_relative "./dsl/#{dsl}_provider"

@@ -9,7 +9,10 @@ module Parser
         def replace!
           @scans.each do |scan|
             s = scan[0]
-            cdl.sub!(s, "#{s},")
+            substr = cdl[scan[1]..-1]
+            replace_with = substr.dup.sub!(s, "#{s},")
+
+            cdl.sub!(substr, replace_with)
           end
         end
       end

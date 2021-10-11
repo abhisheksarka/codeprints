@@ -1,17 +1,17 @@
 module Parser
   module Dsl
-    module PropsProvider
+    module HasOneProvider
       extend ActiveSupport::Concern
 
       included do
       end
 
-      def props(args)
-        @props = args
+      def has_one(args)
+        @has_one = args
       end
 
-      def provided_props
-        @props
+      def provided_has_one
+        @has_one
       end
 
       class_methods do

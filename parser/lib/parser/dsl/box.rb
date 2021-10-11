@@ -27,6 +27,18 @@
 #       id: String
 #       name: String
 #     }
+
+#     has_many {
+#       ids: String
+#     }
+
+#     has_one {
+#       id: String
+#     }
+
+#     belongs_to {
+#       user: String
+#     }
 #   }
 # }
 # box = Parser::Dsl::Box.new(cdl, "A")
