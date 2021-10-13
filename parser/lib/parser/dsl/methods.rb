@@ -1,6 +1,7 @@
 module Parser
   module Dsl
     class Methods
+      include DescProvider
       include ReturnsProvider
 
       attr_accessor :name,

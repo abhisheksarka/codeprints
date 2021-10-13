@@ -1,4 +1,5 @@
 [
+  :desc,
   :props,
   :returns,
   :methods,
@@ -34,6 +35,11 @@ module Parser
     def self.validate_type!(type)
       raise Error::UndefinedType unless supported_types.include?(type)
       type
+    end
+
+    def self.validate_value!(value, type)
+      raise Error::UndefinedType unless supported_types.include?(value.class)
+      value
     end
   end
 end

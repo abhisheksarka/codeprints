@@ -1,6 +1,7 @@
 module Parser
   module Dsl
     class Klass
+      include DescProvider
       include PropsProvider
       include HasOneProvider
       include HasManyProvider

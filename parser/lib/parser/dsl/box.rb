@@ -1,11 +1,13 @@
 # cdl = %{
 #   class Charge {
+#     desc "Something that can be paid for"
 #     props {
 #       id: String,
 #       name: String
 #     }
-    
+#
 #     hello(a: String, b: String) {
+#       desc "Does something"
 #       returns String
 #     }
 #   }
