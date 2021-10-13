@@ -1,23 +1,15 @@
-# cdl = %{
-#   class Charge {    
-#     props {
-#       id: String
-#       name: String
-#     }
+cdl = %{
+  class Charge {
+    props {
+      id: String,
+      name: String
+    }
     
-#     has_many {
-#       payments: Payment
-#     }
-    
-#     belongs_to {
-#       user: User
-#     }
-    
-#     has_one {
-#       active_payment: Payment
-#     }
-#   }  
-# }
+    hello(a: String, b: String) {
+      returns String
+    }
+  }
+}
 # box = Parser::Dsl::Box.new(cdl, "A")
 # box.run!
 

@@ -17,6 +17,10 @@ module Parser
             def initialize(name, opts, &block)
               super(name, opts, &block)
             end
+
+            def method_missing(name, *args, &block)
+              register_method(name, args[0])
+            end
           end
         )
         klasses[name] = const.new(name, opts, &block)

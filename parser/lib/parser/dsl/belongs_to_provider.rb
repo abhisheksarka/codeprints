@@ -7,7 +7,7 @@ module Parser
       end
 
       def belongs_to(args)
-        @belongs_to = args
+        @belongs_to = Args.new(args)
       end
 
       def provided_belongs_to

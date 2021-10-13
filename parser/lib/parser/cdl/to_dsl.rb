@@ -14,7 +14,7 @@ module Parser
       def self.run!(str)
         [
           Class,
-          HashComma,
+          # HashComma,
           Props,
           HasOne,
           HasMany,

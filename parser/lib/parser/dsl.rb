@@ -1,5 +1,6 @@
 [
   :props,
+  :methods,
   :belongs_to,
   :has_many,
   :has_one,
@@ -9,7 +10,8 @@
 end
 
 [
-  :klass
+  :klass,
+  :args
 ].each do |dsl|
   require_relative "./dsl/#{dsl}"
 end
@@ -22,8 +24,7 @@ module Parser
       [
         String,
         Integer,
-        Float,
-        Boolean
+        Float
       ]
     end
   end

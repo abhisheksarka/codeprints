@@ -5,6 +5,7 @@ module Parser
       include HasOneProvider
       include HasManyProvider
       include BelongsToProvider
+      include MethodsProvider
 
       attr_accessor :name,
                     :opts,

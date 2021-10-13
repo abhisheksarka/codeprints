@@ -7,7 +7,7 @@ module Parser
       end
 
       def has_many(args)
-        @has_many = args
+        @has_many = Args.new(args)
       end
 
       def provided_has_many

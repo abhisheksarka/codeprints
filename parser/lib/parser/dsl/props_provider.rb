@@ -7,7 +7,7 @@ module Parser
       end
 
       def props(args)
-        @props = args
+        @props = Args.new(args)
       end
 
       def provided_props
