@@ -1,5 +1,6 @@
 [
   :props,
+  :returns,
   :methods,
   :belongs_to,
   :has_many,
@@ -10,6 +11,7 @@
 end
 
 [
+  :methods,
   :klass,
   :args
 ].each do |dsl|
@@ -24,8 +26,14 @@ module Parser
       [
         String,
         Integer,
-        Float
+        Float,
+        Array
       ]
+    end
+
+    def self.validate_type!(type)
+      raise Error::UndefinedType unless supported_types.include?(type)
+      type
     end
   end
 end

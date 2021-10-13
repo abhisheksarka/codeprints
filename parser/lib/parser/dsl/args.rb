@@ -7,8 +7,8 @@ module Parser
       end
 
       def validate!
-        values.each do |value|
-          raise Error::UndefinedType unless Dsl.supported_types.include?(value)
+        values.each do |type|
+          Dsl.validate_type!(type)
         end
       end
     end

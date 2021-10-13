@@ -1,15 +1,15 @@
-cdl = %{
-  class Charge {
-    props {
-      id: String,
-      name: String
-    }
+# cdl = %{
+#   class Charge {
+#     props {
+#       id: String,
+#       name: String
+#     }
     
-    hello(a: String, b: String) {
-      returns String
-    }
-  }
-}
+#     hello(a: String, b: String) {
+#       returns String
+#     }
+#   }
+# }
 # box = Parser::Dsl::Box.new(cdl, "A")
 # box.run!
 
@@ -67,6 +67,7 @@ module Parser
                 # usage does not matter
                 a = (klasses.values)
                 a.each(&:evaluate_block)
+                a.each(&:evaluate_method_blocks)
               end
 
               def self.const_missing(name)

@@ -19,7 +19,7 @@ module Parser
             end
 
             def method_missing(name, *args, &block)
-              register_method(name, args[0])
+              register_method(name, args[0], &block)
             end
           end
         )

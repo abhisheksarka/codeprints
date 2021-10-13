@@ -6,15 +6,17 @@ module Parser
       included do
       end
 
-      def register_method(name, args = {})
+      def register_method(name, args = {}, &block)
         @methods ||= {}.with_indifferent_access
-        @methods[name] = {
-          args: Args.new(args || {})
-        }
+        @methods[name] = Methods.new(name, args, &block)
       end
 
       def provided_methods
         @methods ||= {}.with_indifferent_access
+      end
+
+      def evaluate_method_blocks
+        @methods.values.each(&:evaluate_block)
       end
 
       class_methods do
