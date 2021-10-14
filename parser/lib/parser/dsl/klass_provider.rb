@@ -1,11 +1,7 @@
 module Parser
   module Dsl
     module KlassProvider
-      extend ActiveSupport::Concern
       include Util
-
-      included do
-      end
 
       def klasses
         @klasses ||= {}.with_indifferent_access
@@ -25,9 +21,6 @@ module Parser
           end
         )
         klasses[name] = const.new(name, opts, &block)
-      end
-
-      class_methods do
       end
     end
   end

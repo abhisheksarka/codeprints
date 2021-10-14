@@ -3,6 +3,7 @@
   :props,
   :returns,
   :methods,
+  :class_methods,
   :belongs_to,
   :has_many,
   :has_one,
@@ -13,6 +14,7 @@ end
 
 [
   :methods,
+  :class_methods,
   :klass,
   :args
 ].each do |dsl|

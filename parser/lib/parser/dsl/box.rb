@@ -5,14 +5,15 @@
 #       id: String,
 #       name: String
 #     }
-
 #     hello(a: String, b: String) {
 #       desc "Does something"
 #       returns String
 #     }
 
-#     world {
-
+#     class_methods {
+#       world {
+#         returns String
+#       }
 #     }
 #   }
 # }
@@ -73,6 +74,7 @@ module Parser
                 # usage does not matter
                 a = (klasses.values)
                 a.each(&:evaluate_block)
+                a.each(&:evaluate_class_method_blocks)
                 a.each(&:evaluate_method_blocks)
               end
 
@@ -80,6 +82,10 @@ module Parser
                 {
                   classes: klasses
                 }.to_json
+              end
+
+              def as_json
+                JSON.parse(to_json)
               end
 
               def self.const_missing(name)
