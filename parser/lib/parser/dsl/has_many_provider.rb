@@ -2,16 +2,17 @@ module Parser
   module Dsl
     module HasManyProvider
       extend ActiveSupport::Concern
+      include Util
 
       included do
       end
 
-      def has_manys
-        @has_manys ||= {}.with_indifferent_access
+      def has_many(args)
+        @has_many = format_args(args)
       end
 
-      def has_many(name, type, opts = {})
-        has_manys[name] = HasMany.new(name, type, opts)
+      def provided_has_many
+        @has_many
       end
 
       class_methods do

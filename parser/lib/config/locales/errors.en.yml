@@ -5,3 +5,4 @@ en:
     multiple_inheritance_not_allowed: 'Multiple inheritance not allowed.'
     only_behaviours_allowed: 'Only behaviours allowed.'
     else_without_an_if: 'Else without an if is not allowed.'
+    undefined_type: 'No such type.'

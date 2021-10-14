@@ -2,16 +2,17 @@ module Parser
   module Dsl
     module HasOneProvider
       extend ActiveSupport::Concern
+      include Util
 
       included do
       end
 
-      def has_ones
-        @has_ones ||= {}.with_indifferent_access
+      def has_one(args)
+        @has_one = format_args(args)
       end
 
-      def has_one(name, type, opts = {})
-        has_ones[name] = HasOne.new(name, type, opts)
+      def provided_has_one
+        @has_one
       end
 
       class_methods do

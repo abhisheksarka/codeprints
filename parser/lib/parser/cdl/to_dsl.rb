@@ -1,29 +1,24 @@
 require_relative './to_dsl/base'
-require_relative './to_dsl/behaviour'
-require_relative './to_dsl/component'
-require_relative './to_dsl/method'
-require_relative './to_dsl/if'
-require_relative './to_dsl/else'
-require_relative './to_dsl/declaration_prop'
-require_relative './to_dsl/declaration_acts_like'
-require_relative './to_dsl/declaration_belongs_to'
-require_relative './to_dsl/declaration_has_many'
-require_relative './to_dsl/declaration_has_one'
+require_relative './to_dsl/class'
+require_relative './to_dsl/methods'
+require_relative './to_dsl/props'
+require_relative './to_dsl/has_many'
+require_relative './to_dsl/has_one'
+require_relative './to_dsl/belongs_to'
+require_relative './to_dsl/hash_comma'
+
 
 module Parser
   module Cdl
     module ToDsl
       def self.run!(str)
         [
-          Component,
-          Behaviour,
-          Method,
-          If,
-          Else,
-          DeclarationProp,
-          DeclarationHasOne,
-          DeclarationHasMany,
-          DeclarationBelongsTo
+          Class,
+          # HashComma,
+          Props,
+          HasOne,
+          HasMany,
+          BelongsTo
         ].map do |r|
           str = r.new(str).run!
         end.last

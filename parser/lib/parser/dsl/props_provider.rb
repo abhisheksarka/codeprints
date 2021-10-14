@@ -1,18 +1,18 @@
 module Parser
   module Dsl
-    module ReturnsProvider
+    module PropsProvider
       extend ActiveSupport::Concern
       include Util
 
       included do
       end
 
-      def returns(type)
-        @returns = Dsl.validate_type!(type).to_s
+      def props(args)
+        @props = format_args(args)
       end
 
-      def provided_returns
-        @returns
+      def provided_props
+        @props
       end
 
       class_methods do

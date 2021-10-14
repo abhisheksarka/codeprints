@@ -10,7 +10,7 @@ export default function Workspace() {
     }}>
       <Grid container spacing={0} sx={{height: '100vh'}}>
         <Grid item xs={5}>
-          <Editor></Editor>
+          <Editor height='100vh'></Editor>
         </Grid>
         <Grid item xs={7}>
           <Viewer></Viewer>

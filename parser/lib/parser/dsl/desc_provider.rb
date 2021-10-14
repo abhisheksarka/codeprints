@@ -1,18 +1,18 @@
 module Parser
   module Dsl
-    module ReturnsProvider
+    module DescProvider
       extend ActiveSupport::Concern
       include Util
 
       included do
       end
 
-      def returns(type)
-        @returns = Dsl.validate_type!(type).to_s
+      def desc(str)
+        @desc = Dsl.validate_value!(str, String)
       end
 
-      def provided_returns
-        @returns
+      def provided_desc
+        @desc
       end
 
       class_methods do

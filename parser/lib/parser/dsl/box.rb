@@ -1,30 +1,19 @@
 # cdl = %{
-#   behaviour Payable {
-#     method pay {
-#       args amount: Integer
-#       returns Array
-#
-#       if (false) {}
-#       if (true) {} else {}
-#       if('x is 1') {}
+#   class Charge {
+#     desc "Something that can be paid for"
+#     props {
+#       id: String,
+#       name: String
 #     }
-#   }
 
-#   component Charge {
-#     acts_like Payable
-#     has_one amount, Amount
-#   }
+#     hello(a: String, b: String) {
+#       desc "Does something"
+#       returns String
+#     }
 
-#   component User {
-#     prop id, Integer
-#     prop name, String
-#     has_many charges, Charge
-#   }
+#     world {
 
-#   component Amount {
-#     prop currency, String, value: 'usd'
-#     prop unit_value, Integer, value: 2000
-#     belongs_to charge, Charge
+#     }
 #   }
 # }
 # box = Parser::Dsl::Box.new(cdl, "A")
@@ -67,8 +56,7 @@ module Parser
           self.const_set(
             :Main,
             Class.new do
-              include ComponentProvider
-              include BehaviourProvider
+              include KlassProvider
 
               attr_accessor :module_ref
 
@@ -83,9 +71,15 @@ module Parser
                 # will be available for use inside the component
                 # blocks. So order of component declaration and
                 # usage does not matter
-                a = (components.values + behaviours.values)
+                a = (klasses.values)
                 a.each(&:evaluate_block)
                 a.each(&:evaluate_method_blocks)
+              end
+
+              def to_json
+                {
+                  classes: klasses
+                }.to_json
               end
 
               def self.const_missing(name)
