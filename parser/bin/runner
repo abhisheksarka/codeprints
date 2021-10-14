@@ -7,4 +7,3 @@ namespace = ARGV[0].to_s
 box = Parser::Dsl::Box.new(cdl, namespace)
 box.run!
 puts box.main.to_json
-
