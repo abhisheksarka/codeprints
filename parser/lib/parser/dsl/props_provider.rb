@@ -2,12 +2,13 @@ module Parser
   module Dsl
     module PropsProvider
       extend ActiveSupport::Concern
+      include Util
 
       included do
       end
 
       def props(args)
-        @props = Args.new(args)
+        @props = format_args(args)
       end
 
       def provided_props

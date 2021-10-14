@@ -2,6 +2,7 @@ module Parser
   module Dsl
     module MethodsProvider
       extend ActiveSupport::Concern
+      include Util
 
       included do
       end
@@ -16,7 +17,7 @@ module Parser
       end
 
       def evaluate_method_blocks
-        @methods.values.each(&:evaluate_block)
+        provided_methods.values.each(&:evaluate_block)
       end
 
       class_methods do

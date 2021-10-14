@@ -2,6 +2,7 @@ module Parser
   module Dsl
     module KlassProvider
       extend ActiveSupport::Concern
+      include Util
 
       included do
       end

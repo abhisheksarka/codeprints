@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+require 'bundler/setup'
+require 'parser'
+
+cdl = ARGV[1].to_s
+namespace = ARGV[0].to_s
+box = Parser::Dsl::Box.new(cdl, namespace)
+box.run!
+puts box.main.to_json
+

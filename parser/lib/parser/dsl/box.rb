@@ -5,7 +5,7 @@
 #       id: String,
 #       name: String
 #     }
-#
+
 #     hello(a: String, b: String) {
 #       desc "Does something"
 #       returns String
@@ -70,6 +70,12 @@ module Parser
                 a = (klasses.values)
                 a.each(&:evaluate_block)
                 a.each(&:evaluate_method_blocks)
+              end
+
+              def to_json
+                {
+                  classes: klasses
+                }.to_json
               end
 
               def self.const_missing(name)

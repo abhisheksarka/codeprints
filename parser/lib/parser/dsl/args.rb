@@ -11,6 +11,10 @@ module Parser
           Dsl.validate_type!(type)
         end
       end
+
+      def stringify_values!
+        self.deep_merge(self) {|_,_,v| v.to_s}
+      end
     end
   end
 end

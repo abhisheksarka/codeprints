@@ -3,6 +3,7 @@ module Parser
     class Methods
       include DescProvider
       include ReturnsProvider
+      include Util
 
       attr_accessor :name,
                     :args,
@@ -10,7 +11,7 @@ module Parser
 
       def initialize(name, args = {}, &block)
         @name = name
-        @args = Args.new(args)
+        @args = format_args(args)
         @block = proc &block
       end
 
