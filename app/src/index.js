@@ -4,11 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CssBaseline from '@mui/material/CssBaseline';
+import { ApolloProvider } from '@apollo/client';
+import client from './api/Client';
 
 ReactDOM.render(
   <React.StrictMode>
     <CssBaseline />
-    <App />
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

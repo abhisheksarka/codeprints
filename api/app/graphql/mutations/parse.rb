@@ -6,7 +6,7 @@ module Mutations
 
     def resolve(cdl:)
       {
-        response: ParserEval.run!(cdl, :Ns)
+        response: (ParserEval.run!(cdl, :Ns) rescue nil)
       }
     end
   end

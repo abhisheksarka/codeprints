@@ -1,11 +1,11 @@
-import React, { useRef } from "react";
-import AceEditor from "react-ace";
-import "ace-builds/src-noconflict/mode-ruby";
-import "ace-builds/src-noconflict/theme-solarized_dark";
-import "ace-builds/src-noconflict/ext-language_tools";
-import { Box } from "@mui/material";
-import Meta from "../meta/Meta";
-import Canvas from "./canvas/Canvas";
+import React, { useRef } from 'react';
+import AceEditor from 'react-ace';
+import 'ace-builds/src-noconflict/mode-ruby';
+import 'ace-builds/src-noconflict/theme-solarized_dark';
+import 'ace-builds/src-noconflict/ext-language_tools';
+import { Box } from '@mui/material';
+import Meta from '../meta/Meta';
+import Canvas from './canvas/Canvas';
 
 export default function Viewer(props) {
   const canvasContainerRef = useRef(null);
