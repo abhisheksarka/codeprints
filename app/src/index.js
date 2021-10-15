@@ -6,13 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ApolloProvider } from '@apollo/client';
 import client from './api/Client';
+import { Provider } from 'react-redux';
+import store from './store'
 
 ReactDOM.render(
   <React.StrictMode>
     <CssBaseline />
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
+    <Provider store={store}>
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -9,9 +9,12 @@ import { Box } from '@mui/material';
 import { useMutation } from '@apollo/client';
 import PARSE from '../../api/mutations/Parse';
 import debounce from 'lodash.debounce';
+import { cdlJsonLoad } from './actions';
+import { useDispatch } from 'react-redux';
 
 export default function Editor(props) {
   const editorRef = useRef(null);
+  const dispatch = useDispatch();
   const [parse, { data, loading, error }] = useMutation(PARSE);
 
   useEffect(() => {
@@ -19,11 +22,13 @@ export default function Editor(props) {
   }, []);
 
   useEffect(() => {
-
+    if (data && data.parse && data.parse.response) {
+      dispatch(cdlJsonLoad(data.parse.response));
+    }
   }, [data]);
 
   const onChange = useCallback(
-		debounce(nv => parse({variables: {cdl: nv}}), 1000),
+		debounce(nv => parse({variables: {cdl: nv}}), 1500),
 		[]
 	);
 

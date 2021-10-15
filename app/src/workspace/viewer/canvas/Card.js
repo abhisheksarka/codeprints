@@ -37,7 +37,7 @@ function createTitle(data, theme) {
 }
 
 function createDesc(data, theme) {
-  return new fabric.Textbox(data.desc, {
+  return new fabric.Textbox(data.desc || "", {
     fontSize: convertRemToPx(parseFloat(theme.typography.caption.fontSize)),
     fontFamily: theme.typography.fontFamily,
     left: parseInt(theme.spacing(2)),
