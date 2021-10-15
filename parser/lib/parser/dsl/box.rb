@@ -1,21 +1,21 @@
 # cdl = %{
-#   class Charge {
-#     desc "Something that can be paid for"
-#     props {
-#       id: String,
-#       name: String
-#     }
-#     hello(a: String, b: String) {
-#       desc "Does something"
-#       returns String
-#     }
+  # class Charge {
+  #   desc "Something that can be paid for"
+  #   props {
+  #     id: String,
+  #     name: String
+  #   }
+  #   hello(a: String, b: String) {
+  #     desc "Does something"
+  #     returns String
+  #   }
 
-#     class_methods {
-#       world {
-#         returns String
-#       }
-#     }
-#   }
+  #   class_methods {
+  #     world {
+  #       returns String
+  #     }
+  #   }
+  # }
 # }
 # box = Parser::Dsl::Box.new(cdl, "A")
 # box.run!

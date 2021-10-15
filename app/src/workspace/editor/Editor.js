@@ -1,13 +1,19 @@
-import React from "react";
-import AceEditor from "react-ace";
-import "ace-builds/src-noconflict/mode-ruby";
-import "ace-builds/src-noconflict/theme-solarized_dark";
-import "ace-builds/src-noconflict/ext-language_tools";
+import React, { useEffect, useRef } from 'react';
+import AceEditor from 'react-ace';
+import 'ace-builds/src-noconflict/theme-solarized_dark';
+import 'ace-builds/src-noconflict/ext-language_tools';
+import ModeCdl from './mode_cdl';
 import { alpha } from '@mui/material/styles';
 import Nav from '../nav/Nav';
-import { Box } from "@mui/material";
+import { Box } from '@mui/material';
 
 export default function Editor(props) {
+  const editorRef = useRef(null);
+
+  useEffect(() => {
+    editorRef.current.editor.getSession().setMode(new ModeCdl());
+  }, []);
+
   return (
     <Box sx={{
       '& .ace_content': {
@@ -20,9 +26,10 @@ export default function Editor(props) {
     }}>
       <Nav></Nav>
       <AceEditor
-        mode="ruby"
-        theme="solarized_dark"
-        name="UNIQUE_ID_OF_DIV"
+        ref={editorRef}
+        mode='text'
+        theme='solarized_dark'
+        name='UNIQUE_ID_OF_DIV'
         showGutter={true}
         highlightActiveLine={true}
         height={props.height || '100%'}
@@ -33,7 +40,7 @@ export default function Editor(props) {
           enableLiveAutocompletion: true,
           enableSnippets: false,
           showLineNumbers: true,
-          fontSize: 14,
+          fontSize: 12,
           tabSize: 2
         }}
       />
