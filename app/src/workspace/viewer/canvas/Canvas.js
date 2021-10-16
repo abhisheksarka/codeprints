@@ -41,8 +41,15 @@ export default function Canvas(props) {
       Card({
         canvas: canvas,
         theme: theme,
-        data: {title: klass.name, desc: klass.desc}
+        data: {
+          title: klass.name,
+          desc: klass.desc,
+          id: klass.name
+        }
       });
+    }
+    if (canvas) {
+      canvas.renderAll();
     }
   }, [cdlJson]);
 

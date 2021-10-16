@@ -3,10 +3,10 @@ import { MUTED_OPACITY } from '../../../theme';
 
 export default function Card(props) {
   const { canvas, theme, data } = props;
-  const group = createGroup();
+  const currentCard = updateCard() || createCard();
 
-  function createGroup() {
-    return new fabric.Group([
+  function createCard() {
+    let card = new fabric.Group([
       createRect(data, theme),
       createTitle(data, theme),
       createDesc(data, theme)
@@ -14,14 +14,31 @@ export default function Card(props) {
       left: 0,
       top: 0
     });
+    card.id = data.id;
+
+    card.hasBorders = false;
+    card.hasControls = false;
+
+    canvas.add(card);
+
+    return card;
   }
 
-  group.hasBorders = false;
-  group.hasControls = false;
+  function updateCard() {
+    let card = findCard();
+    if (!card) { return }
 
-  canvas.add(group);
+    updateDesc(card, data);
+    return card;
+  }
 
-  return group;
+  function findCard() {
+    return canvas.getObjects().filter((obj) => {
+      return (obj.id == data.id)
+    })[0];
+  }
+
+  return currentCard;
 };
 
 
@@ -32,8 +49,16 @@ function createTitle(data, theme) {
     left: parseInt(theme.spacing(2)),
     top: parseInt(theme.spacing(2)),
     fontWeight: 'bold',
-    fill: theme.palette.primary.contrastText
+    fill: theme.palette.primary.contrastText,
+    id: 'title'
   });
+}
+
+function updateDesc(card, data) {
+  let desc = card.getObjects().filter((obj) => {
+    return (obj.id == 'desc')
+  })[0];
+  desc.set('text', data.desc || "");
 }
 
 function createDesc(data, theme) {
@@ -46,7 +71,8 @@ function createDesc(data, theme) {
     fill: theme.palette.primary.contrastText,
     textAlign: 'left',
     splitByGrapheme: true,
-    opacity: MUTED_OPACITY
+    opacity: MUTED_OPACITY,
+    id: 'desc'
   });
 }
 
@@ -59,7 +85,8 @@ function createRect(data, theme) {
     strokeWidth: 1,
     padding: parseInt(theme.spacing()),
     rx: parseInt(theme.spacing()),
-    ry: parseInt(theme.spacing())
+    ry: parseInt(theme.spacing()),
+    id: 'rect'
   });
 }
 
